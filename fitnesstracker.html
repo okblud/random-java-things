@@ -1,0 +1,56 @@
+/* OMG AN HTML FILE IN A JAVASCRIPT REPO!?!??! this uses some java experience in it */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fitness trackr</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #log {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>fitness trackr</h1>
+
+    <label for="exercise">amount of exercise:</label>
+    <input type="text" id="exercise" placeholder="Enter exercise amount">
+
+    <label for="duration">duration of exercise:</label>
+    <input type="number" id="duration" placeholder="Enter duration of minutes of exercise">
+
+    <button onclick="logExercise()">log exercise info</button>
+
+    <h2>Exercise Log</h2>
+    <ul id="log"></ul>
+
+    <script>
+        function logExercise() {
+            const exerciseInput = document.getElementById('exercise');
+            const durationInput = document.getElementById('duration');
+            const logList = document.getElementById('log');
+
+            const exercise = exerciseInput.value;
+            const duration = durationInput.value;
+
+            if (!exercise || !duration) {
+                alert('user did not enter e and d information!');
+                return;
+            }
+
+            const logEntry = document.createElement('li');
+            logEntry.textContent = `Exercise: ${exercise}, Duration: ${duration} minutes`;
+
+            logList.appendChild(logEntry);
+
+            // Clear input fields after logging
+            exerciseInput.value = '';
+            durationInput.value = '';
+        }
+    </script>
+</body>
+</html>
